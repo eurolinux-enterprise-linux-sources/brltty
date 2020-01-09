@@ -1,0 +1,45 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2009 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU General Public License, as published by the Free Software
+# Foundation; either version 2 of the License, or (at your option) any
+# later version. Please see the file LICENSE-GPL for details.
+#
+# Web Page: http://mielke.cc/brltty/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+DRIVER_CODE = eu
+DRIVER_NAME = EuroBraille
+DRIVER_COMMENT = AzerBraille, Clio, Iris, NoteBraille, Scriba, Esys 12/40
+DRIVER_VERSION = 2.0
+DRIVER_DEVELOPERS = Yannick PLASSIARD <yan@mistigri.org>, Olivier BERT <obert01@mistigri.org>, Nicolas PITRE <nico@fluxnic.net>
+HELP_DEPS = $(HELP_TEXT)
+
+include $(SRC_TOP)braille.mk
+
+SRC_FILES = \
+	eu_braille.c \
+	eu_io.c \
+  	eu_serial.c \
+	eu_usb.c \
+  	eu_bluetooth.c \
+  	eu_net.c \
+	eu_protocol.c \
+	eu_clio.c \
+	eu_esysiris.c
+
+OBJ_FILES = $(SRC_FILES:.c=.$O)
+
+braille.$O: $(OBJ_FILES)
+	$(MKOBJ)  $@ $(OBJ_FILES)
+
+%.$O: $(SRC_DIR)/%.c
+	$(CC) $(BRL_CFLAGS) -o $@ -c $<

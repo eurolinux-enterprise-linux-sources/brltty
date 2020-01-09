@@ -1,0 +1,821 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+ <META NAME="GENERATOR" CONTENT="LinuxDoc-Tools 0.9.21">
+ <TITLE>Manuel de référence de BRLTTY: Tables</TITLE>
+ <LINK HREF="BRLTTY-7.html" REL=next>
+ <LINK HREF="BRLTTY-5.html" REL=previous>
+ <LINK HREF="BRLTTY.html#toc6" REL=contents>
+</HEAD>
+<BODY>
+<A HREF="BRLTTY-7.html">Page suivante</A>
+<A HREF="BRLTTY-5.html">Page précédente</A>
+<A HREF="BRLTTY.html#toc6">Table des matières</A>
+<HR>
+<H2><A NAME="tables"></A> <A NAME="s6">6.</A> <A HREF="BRLTTY.html#toc6">Tables</A></H2>
+
+
+
+<H2><A NAME="table-text"></A> <A NAME="ss6.1">6.1</A> <A HREF="BRLTTY.html#toc6.1">Tables de texte</A>
+</H2>
+
+<P>Les fichiers ayant un nom de la forme <CODE>*.ttb</CODE> sont des tables de texte,
+et ceux avec des noms de la forme <CODE>*.tti</CODE> sont des sous-tables de texte.
+Elles sont utilisées par BRLTTY pour traduire les caractères sur l'écran
+dans les représentations braille qui correspond à leur ordinateur 8 points.</P>
+<P>La table de texte 
+<A HREF="BRLTTY-14.html#nabcc">North American Braille Computer Code</A>
+(NABCC) (code informatique braille nord-américain).
+En plus de celle-ci par défaut, les alternatives suivantes sont fournies:
+<DL>
+<DT><B>auto</B><DD><P>autosélection à partir de la locale</P>
+<DT><B>ar</B><DD><P>Arabe (générique)</P>
+<DT><B>as</B><DD><P>Assamese</P>
+<DT><B>awa</B><DD><P>Awaïen</P>
+<DT><B>bg</B><DD><P>Bulgare</P>
+<DT><B>bh</B><DD><P>Bihari</P>
+<DT><B>bn</B><DD><P>Bengali</P>
+<DT><B>bo</B><DD><P>Tibétin</P>
+<DT><B>bra</B><DD><P>Braj</P>
+<DT><B>brf</B><DD><P>pour voir des fichiers <CODE>.brf</CODE> dans un éditeur ou un visualiseur</P>
+<DT><B>cs</B><DD><P>Tchèque</P>
+<DT><B>cy</B><DD><P>Gallois</P>
+<DT><B>da</B><DD><P>Danois</P>
+<DT><B>de</B><DD><P>Allemand</P>
+<DT><B>dra</B><DD><P>Dravidian</P>
+<DT><B>el</B><DD><P>Grec</P>
+<DT><B>en</B><DD><P>Anglais</P>
+<DT><B>en_CA</B><DD><P>Anglais (Canada)</P>
+<DT><B>en_UK</B><DD><P>Anglais (Royaume-Uni)</P>
+<DT><B>en_US</B><DD><P>Anglais (États-Unis)</P>
+<DT><B>en-nabcc</B><DD><P>Anglais (Code informatique braille nord-américain)</P>
+<DT><B>eo</B><DD><P>Esperanto</P>
+<DT><B>es</B><DD><P>Espagnol</P>
+<DT><B>et</B><DD><P>Estonien</P>
+<DT><B>fi</B><DD><P>Finnois</P>
+<DT><B>fr</B><DD><P>Français</P>
+<DT><B>fr_CA</B><DD><P>Français (Canada)</P>
+<DT><B>fr_FR</B><DD><P>Français (France)</P>
+<DT><B>fr-2007</B><DD><P>Français (unifié)</P>
+<DT><B>fr-cbifs</B><DD><P>Français (Code Braille Informatique Français Standard)</P>
+<DT><B>ga</B><DD><P>Irlandais</P>
+<DT><B>gd</B><DD><P>Gaélique</P>
+<DT><B>gon</B><DD><P>Gondi</P>
+<DT><B>gu</B><DD><P>Gujarati</P>
+<DT><B>he</B><DD><P>Hébreux</P>
+<DT><B>hi</B><DD><P>Hindou</P>
+<DT><B>hr</B><DD><P>Croate</P>
+<DT><B>hu</B><DD><P>Hongrois</P>
+<DT><B>hy</B><DD><P>Arménien</P>
+<DT><B>is</B><DD><P>Islandais</P>
+<DT><B>it</B><DD><P>Italien</P>
+<DT><B>kha</B><DD><P>Khasi</P>
+<DT><B>kn</B><DD><P>Kannada</P>
+<DT><B>kok</B><DD><P>Konkani</P>
+<DT><B>kru</B><DD><P>Kurukh</P>
+<DT><B>lt</B><DD><P>Lituanien</P>
+<DT><B>lv</B><DD><P>Letton</P>
+<DT><B>mg</B><DD><P>Malgache</P>
+<DT><B>mi</B><DD><P>Maori</P>
+<DT><B>ml</B><DD><P>Malayalam</P>
+<DT><B>mni</B><DD><P>Manipuri</P>
+<DT><B>mr</B><DD><P>Marathi</P>
+<DT><B>mt</B><DD><P>Maltais</P>
+<DT><B>mun</B><DD><P>Mundari</P>
+<DT><B>mwr</B><DD><P>Marwari</P>
+<DT><B>ne</B><DD><P>Népalais</P>
+<DT><B>new</B><DD><P>Newari</P>
+<DT><B>nl</B><DD><P>Néerlandais</P>
+<DT><B>nl_BE</B><DD><P>Néerlandais (Belge)</P>
+<DT><B>nl_NL</B><DD><P>Néerlandais (Pays-Bas)</P>
+<DT><B>no</B><DD><P>Norvégien</P>
+<DT><B>nwc</B><DD><P>Newari ancien</P>
+<DT><B>or</B><DD><P>Oriya</P>
+<DT><B>pa</B><DD><P>Panjabi</P>
+<DT><B>pi</B><DD><P>Pali</P>
+<DT><B>pl</B><DD><P>Polonais</P>
+<DT><B>pt</B><DD><P>Portugais</P>
+<DT><B>ro</B><DD><P>Roumain</P>
+<DT><B>ru</B><DD><P>Russe</P>
+<DT><B>sa</B><DD><P>Sanskrit</P>
+<DT><B>sat</B><DD><P>Santali</P>
+<DT><B>sd</B><DD><P>Sindhi</P>
+<DT><B>sk</B><DD><P>Slovaque</P>
+<DT><B>sv</B><DD><P>Suédois</P>
+<DT><B>sw</B><DD><P>Swahili</P>
+<DT><B>ta</B><DD><P>Tamil</P>
+<DT><B>te</B><DD><P>Telugu</P>
+<DT><B>tr</B><DD><P>Turc</P>
+<DT><B>vi</B><DD><P>Vietnamien</P>
+</DL>
+
+Voir l'option 
+<A HREF="BRLTTY-4.html#options-text-table">-t</A> en ligne de commande,
+la ligne 
+<A HREF="BRLTTY-4.html#configure-text-table">text-table</A> du fichier de
+configuration, et l'option de compilation
+<A HREF="BRLTTY-3.html#build-text-table">--with-text-table</A> pour des détails
+concernant la façon d'utiliser et de changer de table de texte.</P>
+
+<H3>Format des tables de texte</H3>
+
+<P>Une table de texte consiste en une séquence d'instructions, une par ligne,
+qui définit comment chaque caractère doit être représenté en braille 
+Vous devez utiliser l'encodage <CODE>UTF-8</CODE>.
+Un blanc (espaces, tabs) tant au début de la ligne qu'aavant et/ou après l'opérateur d'une instruction,
+est ignoré.</P>
+<P>Les lignes ne contenant que des blancs sont ignorées.
+Si le premier caractère non blanc d'une ligne est "#", cette ligne est
+un commentaire et est ignorée.</P>
+
+<H3>Instructions des tables de texte</H3>
+
+<P>Les instructions suivantes sont fournies:
+<DL>
+<DT><B><CODE>char</CODE> <EM>caractère</EM> <EM>points</EM> # <EM>commentaire</EM></B><DD><P>Utilise l'instruction <CODE>char</CODE> pour spécifier la façon dont un caractère 
+Unicode sera représenté en braille.</P>
+<P>
+<DL>
+<DT><B><EM>caractère</EM></B><DD><P>Le caractère Unicode qui sera défini. Cela peut être:
+<UL>
+<LI>Tout caractère différent d'un antislash ou d'un caractère blanc.</LI>
+<LI>Un caractère spécial précédé d'un anti-slash.
+Ce sont:
+<DL>
+<P>- </P>
+<DT><B>\b</B><DD><P>Le caractère Effacement
+- </P>
+<DT><B>\f</B><DD><P>Le caractère formfeed
+- </P>
+<DT><B>\n</B><DD><P>Le caractère Nouvelle ligne.
+- </P>
+<DT><B>\o###</B><DD><P>La représentation octale à 3 chiffres d'un caractère.
+- </P>
+<DT><B>\r</B><DD><P>Le caractère retour chariot
+- </P>
+<DT><B>\s</B><DD><P>Le caractère Espace
+- </P>
+<DT><B>\t</B><DD><P>Le caractère Tab horizontale
+- </P>
+<DT><B>\u####</B><DD><P>La représentation hexadécimale à quatre chiffres d'un caractère.
+- </P>
+<DT><B>\U########</B><DD><P>La représentation hexadécimale à huit chiffres d'un caractère.
+- </P>
+<DT><B>\v</B><DD><P>Le caractère tab vertical
+- </P>
+<DT><B>\x##</B><DD><P>La représentation hexadécimale à deux chiffres d'un caractère.
+- </P>
+<DT><B>\X##</B><DD><P>... (la casse du X et des chiffres n'a pas de signification)
+- </P>
+<DT><B>\#</B><DD><P>Signe d'un nombre littéral.
+- </P>
+<DT><B>\&lt;name&gt;</B><DD><P>Le nom Unicode d'un caractère (utilisez _ pour l'espace).
+- </P>
+<DT><B>\\</B><DD><P>Un antislash littéral.</P>
+</DL>
+</LI>
+</UL>
+</P>
+<DT><B><EM>dots</EM></B><DD><P>La représentation braille du caractère Unicode. C'est une séquence d'un
+à huit nombres de points. Si la séquence du nombre de points est entourée
+de parenthèses, vous pouvez séparer les numéros des points l'un de l'autre
+par des blancs. Un numéro de point est un chiffre compris entre <CODE>1</CODE>-<CODE>8</CODE> 
+tels que définis par la
+<A HREF="BRLTTY-13.html#dots">Standard Braille Dot Numbering Convention</A> (convention
+de numérotation de points standard). Le numéro de point spécial <CODE>0</CODE>
+est reconnu quand il n'est pas entouré de parenthèses, et il signifie aucun
+point; il ne peut être utilisé parallèlement à un autre numéro de point.</P>
+</DL>
+</P>
+<P>Exemples:
+<UL>
+<LI><CODE>char a 1</CODE></LI>
+<LI><CODE>char b (12)</CODE></LI>
+<LI><CODE>char c ( 4  1   )</CODE></LI>
+<LI><CODE>char \\ 12567</CODE></LI>
+<LI><CODE>char \s 0</CODE></LI>
+<LI><CODE>char \x20 ()</CODE></LI>
+<LI><CODE>char \&lt;LATIN_SMALL_LETTER_D&gt; 145</CODE></LI>
+</UL>
+</P>
+<DT><B><CODE>byte</CODE> <EM>byte</EM> <EM>points</EM> # <EM>commentaire</EM></B><DD><P>Utilise l'instruction <CODE>byte</CODE> pour spécifier comment un caractère en encodage local
+doit être représenté en braille. Il a été retenu pour des raisons de
+compatibilité mais ne devrait pas être utilisé.</P>
+<P>Les caractères Unicode devraient être définis
+(via l'instruction <CODE>char</CODE>) de telle sorte que la table de texte demeure
+valide par rapport à l'encodage local.</P>
+<P>
+<DL>
+<DT><B><EM>byte</EM></B><DD><P>Le caractère local défini. Il peut être spécifié de la même manière que
+l'opérateur <EM>caractère</EM> de l'instruction <CODE>char</CODE> sauf que les formes
+spécifiques à l'Unicode (\u, \U, \&lt;) ne peuvent pas être utilisées.</P>
+<DT><B><EM>dots</EM></B><DD><P>La représentation braille du caractère local.
+Il peut être spécifié de la même manière que
+l'opérateur <EM>points</EM> de l'instruction <CODE>char</CODE>.</P>
+</DL>
+</P>
+<DT><B><CODE>include</CODE> <EM>fichier</EM> # <EM>commentaire</EM></B><DD><P>Utilise l'instruction <CODE>include</CODE> pour inclure le contenu d'une sous-table de
+texte. Elle est récursive, ce qui signifie que toute sous-table de texte peut
+inclure elle-même une autre sous-table de texte. Prenez soin de vous
+assurer de ne pas créer une "inclusion en boucle".</P>
+<P>
+<DL>
+<DT><B><EM>fichier</EM></B><DD><P>Le fichier à inclure. Cela peut être un chemin relatif ou absolu. Si c'est
+relatif, il est ancré au répertoire contenant le fichier qui inclut.</P>
+</DL>
+</P>
+</DL>
+</P>
+
+<H2><A NAME="table-attributes"></A> <A NAME="ss6.2">6.2</A> <A HREF="BRLTTY.html#toc6.2">Tables d'attributs</A>
+</H2>
+
+<P>Les fichiers aux noms de la forme *.atb sont des tables d'attributs et ceux
+aux noms de la forme *.ati sont des sous-tables d'attributs. Ils sont
+utilisés quand BRLTTY affiche les
+attributs de l'écran au lieu du contenu de l'écran (voir la commande
+<A HREF="BRLTTY-4.html#command-DISPMD">DISPMD</A>).
+Chacun des huit points braille représente l'un des huit bits d'attributs
+<CODE>VGA</CODE>.
+Les tables d'attributs suivantes sont fournies:
+<DL>
+<DT><B>attributes</B><DD><P>La colonne à gauche représente les couleurs de premier plan:
+<DL>
+<DT><B>Point 1</B><DD><P>Rouge</P>
+<DT><B>Point 2</B><DD><P>Vert</P>
+<DT><B>Point 3</B><DD><P>Bleu</P>
+<DT><B>Point 7</B><DD><P>Brillant</P>
+</DL>
+
+La colonne à droite représente les couleurs de fond:
+<DL>
+<DT><B>Point 4</B><DD><P>Rouge</P>
+<DT><B>Point 5</B><DD><P>Vert</P>
+<DT><B>Point 6</B><DD><P>Bleu</P>
+<DT><B>Point 8</B><DD><P>Clignotant</P>
+</DL>
+
+Un point est affiché quand son bit d'attribut correspondant est actif.
+C'est la table d'attributs par défaut car c'est la plus
+intuitive. Cependant, l'un de ses problèmes est qu'il est difficile de
+distinguer la différence entre la vidéo normale (noir sur blanc) et inversée
+(blanc sur noir).</P>
+<DT><B>attrib</B><DD><P>La colonne à gauche représente les couleurs de premier plan: 
+<DL>
+<DT><B>Point 1</B><DD><P>Rouge</P>
+<DT><B>Point 2</B><DD><P>Vert</P>
+<DT><B>Point 3</B><DD><P>Bleu</P>
+<DT><B>Point 7</B><DD><P>Brillant</P>
+</DL>
+
+La colonne à droite représente les couleurs de fond:
+<DL>
+<DT><B>Point 4</B><DD><P>Rouge</P>
+<DT><B>Point 5</B><DD><P>Vert</P>
+<DT><B>Point 6</B><DD><P>Bleu</P>
+<DT><B>Point 8</B><DD><P>Clignotant</P>
+</DL>
+
+Un bit de fond est actif pour générer ses points correspondant, tandis
+qu'un bit de premier plan est inactif pour générer son point correspondant.
+Cette logique non intuitive facilite en fait la lecture de la plupart des
+combinaisons d'attributs communément utilisées.</P>
+</DL>
+
+Voir l'option 
+<A HREF="BRLTTY-4.html#options-attributes-table">-a</A> en ligne de
+commande, la ligne 
+<A HREF="BRLTTY-4.html#configure-attributes-table">attributes-table</A>
+du fichier de configuration, et l'option de compilation
+<A HREF="BRLTTY-3.html#build-attributes-table">--with-attributes-table</A> pour des
+détails concernant l'utilisation et le changement de table
+d'attributs.</P>
+
+<H3>Format des tables d'attributs</H3>
+
+<P>Une table d'attributs est une séquence de lignes de commande, avec une
+commande par ligne, qui définit comment doit être représenté en braille les
+combinaisons des attributs <CODE>VGA</CODE>. Vous devez utiliser un encodage de caractères
+<CODE>UTF-8</CODE>.
+Les espaces blancs (les vides, tabulations) au début d'une ligne, ou avant
+et/ou après l'opérateur d'une ligne de commande, sont ignorés.
+Les lignes ne contenant que des espaces sont ignorées.
+Si le premier caractère non-blanc d'une ligne est "#" cette ligne est un
+commentaire et est ignorée.</P>
+
+<H3>Lignes de commande des tables d'attributs</H3>
+
+<P>Les lignes de commande suivantes sont fournies:
+<DL>
+<DT><B><CODE>dot</CODE> <EM>point</EM> <EM>etat</EM> # <EM>commentaire</EM></B><DD><P>Utilisez l'instruction <CODE>dot</CODE> pour spécifier ce que représente un point 
+particulier.</P>
+<P>
+<DL>
+<DT><B><EM>point</EM></B><DD><P>Le point qui est défini. C'est une seule case allant de 
+<CODE>1</CODE> à <CODE>8</CODE> comme défini par la
+<A HREF="BRLTTY-13.html#dots">Convention du nombre de points braille standard</A>.</P>
+<DT><B><EM>état</EM></B><DD><P>Ce que représente le point. Il peut s'agir:
+<DL>
+<DT><B><CODE>on</CODE></B><DD><P>D'un point élevé si l'attribut nommé est actif.</P>
+<DT><B><CODE>off</CODE></B><DD><P>D'un point enfoncé si l'attribut nommé est inactif.</P>
+</DL>
+</P>
+<P>Les noms des bits des attributs sont:
+<DL>
+<DT><B>0X01</B><DD><P><CODE>bleu premier plan</CODE></P>
+<DT><B>0X02</B><DD><P><CODE>vert premier plan</CODE>/</P>
+<DT><B>0X04</B><DD><P><CODE>rouge premier plan</CODE>/</P>
+<DT><B>0X08</B><DD><P><CODE>brillant premier plan</CODE>/</P>
+<DT><B>0X10</B><DD><P><CODE>fond bleu</CODE></P>
+<DT><B>0X20</B><DD><P><CODE>fond vert</CODE></P>
+<DT><B>0X40</B><DD><P><CODE>fond rouge</CODE></P>
+<DT><B>0X80</B><DD><P><CODE>fond clignotant</CODE></P>
+</DL>
+</P>
+</DL>
+</P>
+<P>Exemples:
+<UL>
+<LI><CODE>dot 1 =fg-red</CODE></LI>
+<LI><CODE>dot 2 ~bg-blue</CODE></LI>
+</UL>
+</P>
+
+<DT><B><CODE>include</CODE> <EM>fichier</EM> # <EM>commentaire</EM></B><DD><P>Utilise la ligne  <CODE>include</CODE> pour inclure le contenu d'une sous-table d'attributs. 
+Il est récursif, ce qui signifie que toute sous-table d'attributs peut
+inclure elle-même une autre sous-table d'attributs. Prenez soin de vous
+assurer de ne pas créer une "inclusion en boucle".</P>
+<P>
+<DL>
+<DT><B><EM>file</EM></B><DD><P>Le fichier à inclure. Cela peut être un chemin relatif ou absolu. Si c'est
+relatif, il est ancré au répertoire contenant le fichier qui inclut.</P>
+</DL>
+</P>
+</DL>
+</P>
+
+<H2><A NAME="table-contraction"></A> <A NAME="ss6.3">6.3</A> <A HREF="BRLTTY.html#toc6.3">Tables d'abrégé</A>
+</H2>
+
+<P>Les fichiers aux noms de la forme <CODE>*.ctb</CODE> sont des tables d'abrégé et ceux
+aux noms de la forme <CODE>*.cti</CODE> sont des sous-tables d'abrégé. Ils sont
+utilisés par BRLTTY pour traduire des séquences de caractères à l'écran en
+leurs représentations correspondantes en braille abrégé. </P>
+<P>BRLTTY présente du braille abrégé si:
+<UL>
+<LI>Une table d'abrégé a été sélectionnée.
+Voir l'option 
+<A HREF="BRLTTY-4.html#options-contraction-table">-c</A> en ligne
+de commande et la ligne
+<A HREF="BRLTTY-4.html#configure-contraction-table">contraction-table</A> du
+fichier de configuration pour des détails.</LI>
+<LI>La possibilité braille 6 points a été activée. Voir la commande
+<A HREF="BRLTTY-4.html#command-SIXDOTS">SIXDOTS</A> et la préférence
+<A HREF="BRLTTY-5.html#preference-text-style">Text Style</A> pour des détails.</LI>
+</UL>
+
+Cette possibilité n'est pas disponible si vous avez spécifié l'option de
+compilation
+<A HREF="BRLTTY-3.html#build-contracted-braille">--disable-contracted-braille</A>.</P>
+<P>Les tables d'abrégé suivantes sont fournies:
+<DL>
+<DT><B>af</B><DD><P>Africains (abrégé)</P>
+<DT><B>am</B><DD><P>Amharic (désabrégé)</P>
+<DT><B>de-basis</B><DD><P>Allemand (désabrégé)</P>
+<DT><B>de-kurzschrift</B><DD><P>Allemand (abrégé - standard 1998)</P>
+<DT><B>de-vollschrift</B><DD><P>Allemand (abréviations de base)</P>
+<DT><B>en-ueb-g2</B><DD><P>Braille anglais unifié (degré 2)</P>
+<DT><B>en-us-g2</B><DD><P>Anglais américain (degré 2)</P>
+<DT><B>es</B><DD><P>Espagnol (degré 2)</P>
+<DT><B>fr-abrege</B><DD><P>Français (abrégé)</P>
+<DT><B>fr-integral</B><DD><P>Français (désabrégé)</P>
+<DT><B>ha</B><DD><P>Hausa (abrégé)</P>
+<DT><B>id</B><DD><P>Indonésien (abrégé)</P>
+<DT><B>ja</B><DD><P>Japonais (désabrégé)</P>
+<DT><B>ko-g1</B><DD><P>Coréen (degré 1)</P>
+<DT><B>ko-g2</B><DD><P>Coréen (degré 2)</P>
+<DT><B>ko</B><DD><P>Coréen (désabrégé)</P>
+<DT><B>mg</B><DD><P>Malgache (abrégé)</P>
+<DT><B>mun</B><DD><P>Munda (abrégé)</P>
+<DT><B>nl</B><DD><P>Néerlandais (abrégé)</P>
+<DT><B>ny</B><DD><P>Chichewa (abrégé)</P>
+<DT><B>ipa</B><DD><P>Alphabet phonétique international</P>
+<DT><B>pt</B><DD><P>Portugais (degré 2)</P>
+<DT><B>si</B><DD><P>Sinhalese (désabrégé)</P>
+<DT><B>sw</B><DD><P>Swahili (abrégé)</P>
+<DT><B>th</B><DD><P>Thai (abrégé)</P>
+<DT><B>zh-tw</B><DD><P>Chinois thaiwanais (désabrégé)</P>
+<DT><B>zh-tw-ucb</B><DD><P>Chinois thaiwanais (braille chinois unique)</P>
+<DT><B>zu</B><DD><P>Zulu (abrégé)</P>
+</DL>
+
+Voir l'option 
+<A HREF="BRLTTY-4.html#options-contraction-table">-c</A> en ligne de commande
+et la ligne 
+<A HREF="BRLTTY-4.html#configure-contraction-table">contraction-table</A> du fichier de 
+configuration pour des détails sur la façon d'utiliser une table d'abrégé.</P>
+
+<H3>Format des tables d'abrégé</H3>
+
+<P>Une table d'abrégé est une séquence de lignes de commande, avec une
+commande par ligne, qui définit comment les séquences de caractères vont être
+représentées en braille. Vous devez utiliser un encodage de caractères
+<CODE>UTF-8</CODE>.</P>
+<P>Les espaces blancs (les vides, tabulations) au début d'une ligne, ou avant
+et/ou après l'opérateur d'une ligne de commande, sont ignorés.
+Les lignes ne contenant que des espaces sont ignorées.
+Si le premier caractère non-blanc d'une ligne est "#" cette ligne est un
+commentaire et est ignorée.</P>
+<P>Le format d'une entrée de table de braille abrégé est:
+<BLOCKQUOTE><CODE>
+<EM>directive</EM> <EM>opérateur</EM> ... [<EM>commentaire</EM>]
+</CODE></BLOCKQUOTE>
+
+Chaque ligne a un nombre d'opérateurs spécifiques.
+Tout texte au-delà du dernier opérateur d'une ligne est interprété comme un commentaire.
+L'ordre des entrées à l'intérieur de la table d'abrégé est, en général, selon la
+convenance de son/ses mainteneur(s).
+Une entrée qui définit une entité, comme <CODE>class</CODE>,
+doit précéder toutes les références de cette entité.</P>
+<P>Les entrées qui correspondent à des séquences de caractères 
+sont automatiquement réorganisées de la plus longue à la plus courte
+afin que des correspondances plus longues soient toujours préférées.
+Si plus d'une entrée correspond à la même séquence de caractères, 
+leur organisation d'origine dans la table est maintenue. 
+Ainsi, la même séquence peut être traduite différemment dans des circonstances
+différentes. </P>
+
+<H3>Opérateurs des tables d'abrégé</H3>
+
+<P>
+<DL>
+<DT><B><EM>characters</EM></B><DD><P>Le premier opérateur d'une séquence de caractères correspondant à une ligne
+est la séquence de caractère à laquelle elle doit correspondre.
+Chaque caractère dans la séquence peut être:
+<UL>
+<LI>Tout caractère différent d'un antislash ou d'un caractère blanc.</LI>
+<LI>Un caractère spécial précédé d'un anti-slash.
+Ce sont:
+<DL>
+<P>- </P>
+<DT><B>\b</B><DD><P>Le caractère Effacement
+- </P>
+<DT><B>\f</B><DD><P>Le caractère formfeed
+- </P>
+<DT><B>\n</B><DD><P>Le caractère Nouvelle ligne.
+- </P>
+<DT><B>\o###</B><DD><P>La représentation octale à 3 chiffres d'un caractère.
+- </P>
+<DT><B>\r</B><DD><P>Le caractère retour chariot
+- </P>
+<DT><B>\s</B><DD><P>Le caractère Espace
+- </P>
+<DT><B>\t</B><DD><P>Le caractère Tab horizontale
+- </P>
+<DT><B>\u####</B><DD><P>La représentation hexadécimale à quatre chiffres d'un caractère.
+- </P>
+<DT><B>\U########</B><DD><P>La représentation hexadécimale à huit chiffres d'un caractère.
+- </P>
+<DT><B>\v</B><DD><P>Le caractère tab vertical
+- </P>
+<DT><B>\x##</B><DD><P>La représentation hexadécimale à deux chiffres d'un caractère.
+- </P>
+<DT><B>\X##</B><DD><P>... (la casse du X et des chiffres n'a pas de signification)
+- </P>
+<DT><B>\#</B><DD><P>Signe d'un nombre littéral.
+- </P>
+<DT><B>\&lt;name&gt;</B><DD><P>Le nom Unicode d'un caractère (utilisez _ pour l'espace).
+- </P>
+<DT><B>\\</B><DD><P>Un antislash littéral.</P>
+</DL>
+</LI>
+</UL>
+</P>
+<DT><B><EM>representation</EM></B><DD><P>Le second opérateur de ces lignes correspondant à la séquence de caractères
+qui en a une est la représentation braille de la séquence.
+Chaque cellule braille est spécifiée comme une séquence d'un à huit numéros
+de points. Un numéro de point est un chiffre compris entre <CODE>1</CODE>-<CODE>8</CODE> 
+tels que définis par la
+<A HREF="BRLTTY-13.html#dots">Standard Braille Dot Numbering Convention</A> (convention
+de numérotation de points standard). Le numéro de point spécial <CODE>0</CODE>
+est reconnu quand il n'est pas entouré de parenthèses, et il signifie aucun
+point; il ne peut être utilisé parallèlement à un autre numéro de point.</P>
+</DL>
+</P>
+<P>+</P>
+<H3><A NAME="contraction-opcodes"></A> Opcodes</H3>
+
+<P>Un opcode est un mot-clé qui dit au traducteur comment interpréter les
+opérateurs. Les opcodes sont groupés ici par leur fonction.</P>
+
+<H3><A NAME="contraction-opcodes-administration"></A> Administration de la table</H3>
+
+<P>Ces opérateurs facilitent l'écriture des tables d'abrégé.
+Ils n'ont pas d'effet direct sur la traduction de caractère.
+<DL>
+<DT><B><CODE>include</CODE> <EM>path</EM>
+<A NAME="contraction-opcode-include"></A> </B><DD><P>Inclut le contenu d'un autre fichier.
+L'inclusion peut se faire à n'importe quel niveau.
+Les chemins relatifs sont déterminés par rapport au répertoire du fichier incluS.</P>
+<DT><B><CODE>locale</CODE> <EM>locale</EM>
+<A NAME="contraction-opcode-locale"></A> </B><DD><P>Définit la locale pour l'interprétation d'un caractère (minuscule,
+majuscule, numérique, etc). La locale peut être définie comme:
+<DL>
+<DT><B><EM>langue</EM>[<CODE>_</CODE><EM>pays</EM>][<CODE>.</CODE><EM>charset</EM>][<CODE>@</CODE><EM>modifier</EM>]</B><DD><P>La composante <EM>langue</EM> est requise et devrait être un code de
+langue à deux lettres <CODE>ISO-639</CODE>.
+La composante <EM>pays</EM> est facultative et devrait être un code de
+pays à deux lettres <CODE>ISO-3166</CODE>.
+La composante <EM>charset</EM> est optionnelle est devrait être le nom
+d'une table de caractères, comme <CODE>ISO-8859-1</CODE>.</P>
+<DT><B>C</B><DD><P>7-bit ASCII.</P>
+<DT><B>-</B><DD><P>Aucune locale.</P>
+</DL>
+
+La dernière spécification de locale s'applique à toute la table. Si
+vous n'utilisez pas cet opcode, la locale <CODE>C</CODE> est utilisée.</P>
+</DL>
+</P>
+
+<H3><A NAME="contraction-opcodes-symbols"></A> Définition d'un symbole spécial</H3>
+
+<P>Ces opcodes définissent les caractères spéciaux qui doivent être insérés dans
+le texte braille afin de le rendre plus clair.
+<DL>
+<DT><B><CODE>capsign</CODE> <EM>points</EM>
+<A NAME="contraction-opcode-capsign"></A> </B><DD><P>Le symbole qui met en majuscule une seule lettre.</P>
+<DT><B><CODE>begcaps</CODE> <EM>points</EM>
+<A NAME="contraction-opcode-begcaps"></A> </B><DD><P>Le symbole qui commence un bloc de lettres en majuscule à l'intérieur d'un
+mot.</P>
+<DT><B><CODE>endcaps</CODE> <EM>points</EM>
+<A NAME="contraction-opcode-endcaps"></A> </B><DD><P>Le symbole qui termine un bloc de lettres en majuscules à l'intérieur
+d'un mot.</P>
+<DT><B><CODE>letsign</CODE> <EM>points</EM>
+<A NAME="contraction-opcode-letsign"></A> </B><DD><P>Le symbole qui désigne une lettre ne faisant pas partie du mot.</P>
+
+<P>Le symbole marquant le début d'un nombre.</P>
+<DT><B><CODE>lastlargesign</CODE> <EM>points</EM>
+<A NAME="contraction-opcode-numsign"></A> </B><DD><P>Traduit les caractères quelque soit l'endroit où ils apparaissent.
+Supprime les espaces qui les précède si le mot précédent a été marqué
+par le code "largesign".</P>
+</DL>
+</P>
+
+<H3><A NAME="contraction-opcodes-translation"></A> Traduction de caractère</H3>
+
+<P>Ces opcodes définissent les représentations braille des séquences de caractères.
+Chacun d'eux définit une entrée à l'intérieur de la table d'abrégé.
+Ces entrées peuvent être définit dans n'importe quel ordre, sauf, comme
+remarqué ci-dessous, lorsqu'elles définissent des représentations
+alternatives de la même séquence de caractères.</P>
+<P>Chacun de ces opcodes a un opérateurs <EM>caractères</EM> (qui doit être
+spécifié comme une <EM>chaîne</EM>), et une condition de configuration dirigeant
+son utilisation.
+Le texte est traduit strictement de la gauche vers la droite, caractère par
+caractère, avec l'entrée la plus acceptable pour chaque position utilisée.
+S'il y a plus d'une entrée acceptable pour une position donnée, celle ayant la
+chaîne de caractères la plus longue est utilisée. S'il y a plus d'une
+entrée acceptable pour la même chaîne de caractères, celle définie le plus
+au début de la table est utilisée (c'est la seule dépendance de l'ordre).</P>
+<P>Beaucoup de ces opcodes ont un opérateur <EM>points</EM> qui définit la
+représentation braille de son opérateur <EM>caractères</EM>. Il peut
+être aussi spécifié comme un signe égal (<CODE>=</CODE>), au quel cas il
+signifie l'une des deux choses. Si l'entrée est pour un seul caractère,
+cela signifie que la représentation du braille informatique sélectionnée
+(voir l'option 
+<A HREF="BRLTTY-4.html#options-text-table">-t</A> en ligne de
+commande et la ligne 
+<A HREF="BRLTTY-4.html#configure-text-table">text-table</A>
+du fichier de configuration) de ce caractère doit être utilisée. Si
+c'est pour une séquence multi-caractères, la représentation par défaut
+de chaque caractère (voir 
+<A HREF="#contraction-opcode-always">always</A>) dans une séquence doit être utilisée.</P>
+<P>Certains termes spéciaux sont utilisés à l'intérieur des descriptions de ces
+opcodes.
+<DL>
+<DT><B>word</B><DD><P>Une séquence maximale d'une ou plusieurs lettres à la suite.</P>
+</DL>
+</P>
+<P>Enfin, voici maintenant la description des opcodes eux-mêmes:
+<DL>
+<DT><B><CODE>literal</CODE> <EM>caractères</EM>
+<A NAME="contraction-opcode-literal"></A> </B><DD><P>Traduit ce qui est lié à l'espace et qui contient une séquence de
+caractères en braille informatique (voir l'option
+<A HREF="BRLTTY-4.html#options-text-table">-t</A> en ligne de commande et la ligne
+<A HREF="BRLTTY-4.html#configure-text-table">text-table</A> du fichier de
+configuration).</P>
+<DT><B><CODE>replace</CODE> <EM>caractères</EM> <EM>caractères</EM>
+<A NAME="contraction-opcode-replace"></A> </B><DD><P>Remplace la première valeur des caractères, quelque soit l'endroit où ils
+apparaissent, par la seconde. Les caractères remplacés ne sont pas
+réinsérés.</P>
+<DT><B><CODE>always</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-always"></A> </B><DD><P>Traduit les caractères quelque soit l'endroit où ils apparaissent.
+S'il n'y a qu'un caractère, alors, en plus, définit la représentation par
+défaut de ce caractère.</P>
+<DT><B><CODE>repeatable</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-repeated"></A> </B><DD><P>Traduit les caractères quelque soit l'endroit où ils apparaissent. Ignore toute
+répétition immédiate de la même séquence.</P>
+<DT><B><CODE>largesign</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-largesign"></A> </B><DD><P>Traduit les caractères quelque soit l'endroit où ils apparaissent. Supprime les
+espaces entre les mots qui se suivent et qui sont gérés par cet opcode.</P>
+<DT><B><CODE>word</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-word"></A> </B><DD><P>Traduit les caractères s'ils forment un mot.</P>
+<DT><B><CODE>joinword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-joinword"></A> </B><DD><P>Traduit les caractères s'ils forment un mot. Supprime l'espace suivant si
+le premier caractère le suit est une lettre.</P>
+<DT><B><CODE>lowword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-lowword"></A> </B><DD><P>Traduit les caractères s'ils forment un mot lié à un espace. </P>
+<DT><B><CODE>contraction</CODE> <EM>caractères</EM>
+<A NAME="contraction-opcode-contraction"></A> </B><DD><P>Fait précéder les caractères d'un signe-lettre (voir
+<A HREF="#contraction-opcode-letsign">letsign</A>) s'ils forment un mot.</P>
+<DT><B><CODE>sufword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-sufword"></A> </B><DD><P>Traduit les caractères s'ils forment soit un mot, soit s'ils sont au
+début d'un mot.</P>
+<DT><B><CODE>prfword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-prfword"></A> </B><DD><P>Traduit les caractères s'ils forment soit un mot, soit s'ils sont à la
+fin d'un mot.</P>
+<DT><B><CODE>begword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-begword"></A> </B><DD><P>Traduit les caractères s'ils sont au début d'un mot.</P>
+<DT><B><CODE>begmidword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-begmidword"></A> </B><DD><P>Traduit les caractères s'ils sont au début ou au milieu d'un mot.</P>
+<DT><B><CODE>midword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-midword"></A> </B><DD><P>Traduit les caractères s'ils sont au milieu d'un mot.</P>
+<DT><B><CODE>midendword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-midendword"></A> </B><DD><P>Traduit les caractères s'ils sont au milieu ou à la fin d'un mot.</P>
+<DT><B><CODE>endword</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-endword"></A> </B><DD><P>Traduit les caractères s'ils sont à la fin d'un mot.</P>
+<DT><B><CODE>prepunc</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-prepunc"></A> </B><DD><P>Traduit les caractères s'ils font partie de la ponctuation au début d'un
+mot.</P>
+<DT><B><CODE>postpunc</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-postpunc"></A> </B><DD><P>Traduit les caractères s'ils font partie de la ponctuation à la fin d'un
+mot.</P>
+<DT><B><CODE>begnum</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-begnum"></A> </B><DD><P>Traduit les caractères s'ils sont au début d'un nombre.</P>
+<DT><B><CODE>midnum</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-midnum"></A> </B><DD><P>Traduit les caractères s'ils sont au milieu d'un nombre.</P>
+<DT><B><CODE>endnum</CODE> <EM>caractères</EM> <EM>points</EM>
+<A NAME="contraction-opcode-endnum"></A> </B><DD><P>Traduit les caractères s'ils sont à la fin d'un nombre.</P>
+</DL>
+</P>
+
+<H3><A NAME="contraction-opcodes-classes"></A> Classes de caractère</H3>
+
+<P>Ces opcodes définissent et utilisent des classes de caractère. Une classe de
+caractère associe un type de caractère à un nom. Le nom se réfère alors à
+n'importe quel caractère à l'intérieur de la classe. Un caractère peut
+appartenir à plus d'une classe.</P>
+<P>Les classes de caractère suivantes sont automatiquement prédéfinies, basées sur
+la locale sélectionnée.
+<DL>
+<DT><B>digit</B><DD><P>Caractères numériques.</P>
+<DT><B>letter</B><DD><P>Les caractères alphabétiques majuscule ou minuscule.
+Certaines locales ont des lettres supplémentaires qui ne sont ni en majuscule
+ni en minuscule.</P>
+<DT><B>lowercase</B><DD><P>Les caractères alphabétiques minuscules.</P>
+<DT><B>punctuation</B><DD><P>Caractères imprimables qui ne sont ni des espaces ni alphanumériques.</P>
+<DT><B>space</B><DD><P>Caractères d'espacement.
+Dans la locale par défaut, il s'agit de: espace, tabulation horizontale, tabulation
+verticale, retour chariot, nouvelle ligne, saut de page.</P>
+<DT><B>uppercase</B><DD><P>Caractères alphabétiques en majuscules.</P>
+</DL>
+</P>
+<P>Les opcodes qui définissent et utilisent des classes de caractères sont:
+<DL>
+<DT><B><CODE>class</CODE> <EM>nom</EM> <EM>caractères</EM>
+<A NAME="contraction-opcode-class"></A> </B><DD><P>Définit une nouvelle classe de caractère. L'opérateur <EM>caractères</EM>
+doit être spécifié comme une <EM>chaîne</EM>. Une classe de caractère ne peut
+pas être utilisée tant qu'elle n'est pas définie.</P>
+<DT><B><CODE>after</CODE> <EM>class</EM> <EM>opcode</EM> ...
+<A NAME="contraction-opcode-after"></A> </B><DD><P>L'opcode spécifié est assez contraint dans le sens où la séquence de
+caractères adéquat doit être immédiatement précédée par un caractère
+appartenant à la classe spécifiée.
+Si vous utilisez plus d'une fois cet opcode sur la même ligne, l'union des
+caractères de toute la classe est utilisée.</P>
+<DT><B><CODE>before</CODE> <EM>class</EM> <EM>opcode</EM> ...
+<A NAME="contraction-opcode-before"></A> </B><DD><P>L'opcode spécifié est assez contraint dans le sens où la séquence de
+caractères adéquat doit être immédiatement suivie par un caractère
+appartenant à la classe spécifiée.
+Si vous utilisez plus d'une fois cet opcode sur la même ligne, l'union des
+caractères de toute la classe est utilisée.</P>
+</DL>
+</P>
+
+<H2><A NAME="table-key"></A> <A NAME="ss6.4">6.4</A> <A HREF="BRLTTY.html#toc6.4">Tables de touches</A>
+</H2>
+
+<P>Les fichiers aux noms de la forme <CODE>*.ktb</CODE> sont des tables de touches, et ceux
+aux noms de la forme <CODE>*.kti</CODE> sont des sous-tables de touches.
+Ils sont utilisés par BRLTTY pour associer des combinaisons de touches de clavier
+à des commandes BRLTTY.</P>
+<P>Les tables de touches suivantes sont fournies:
+<DL>
+<DT><B>desktop</B><DD><P>associations pour les claviers complets</P>
+<DT><B>keypad</B><DD><P>associations pour la navigation à partir du pavé numérique</P>
+<DT><B>laptop</B><DD><P>associations pour les claviers sans pavé numérique</P>
+</DL>
+
+Voir l'option 
+<A HREF="BRLTTY-4.html#options-key-table">-k</A> en ligne de commande
+et la ligne 
+<A HREF="BRLTTY-4.html#configure-key-table">key-table</A> du fichier de
+configuration pour plus de détails concernant la manière d'utiliser une table
+de touche.</P>
+
+<H3>Format des tables de touches</H3>
+
+<P>Une table de touche consiste en une séquence d'instructions, une par ligne,
+qui définit comment chaque caractère doit être représenté en braille 
+Vous devez utiliser l'encodage <CODE>UTF-8</CODE>.
+Un blanc (espaces, tabs) tant au début de la ligne qu'aavant et/ou après l'opérateur d'une instruction,
+est ignoré.</P>
+<P>Les lignes ne contenant que des blancs sont ignorées.
+Si le premier caractère non blanc d'une ligne est "#", cette ligne est
+un commentaire et est ignorée.</P>
+
+<H3>Lignes de la table de touche</H3>
+
+<P>Les lignes suivantes sont fournies:
+<DL>
+<DT><B><CODE>bind</CODE> <EM>touches</EM> <EM>commande</EM> # <EM>commentaire</EM></B><DD><P>Utilisez la ligne <CODE>bind</CODE> pour associer une combinaison de touches 
+à une commande.            
+<DL>
+<DT><B><EM>touches</EM></B><DD><P>La combinaison de touches à associer.
+C'est une séquence d'un ou plusieurs noms de touches (voir le
+fichier <CODE>ktb_keynames.h</CODE> dans le sous-répertoire <CODE>Programs</CODE>
+de l'arborescence des sources de BRLTTY) séparés par des
+signes plus (<CODE>+</CODE>). Les touches initiales sont connues comme
+des modificateurs et peuvent être pressées dans n'importe quel
+ordre. La dernière touche doit être appuyée avec tous les modifieurs maintenus.</P>
+<DT><B><EM>commande</EM></B><DD><P>Le nom d'une commande BRLTTY (voir la section
+<A HREF="BRLTTY-4.html#commands">Commandes</A> pour plus de détails). Pour
+les commandes listées dans la section 
+<A HREF="BRLTTY-4.html#commands-features">Activation de fonctionnalités</A>:
+<UL>
+<LI>Si aucun modificateur n'est appliqué, l'état de la fonctionnalité
+inversée.</LI>
+<LI>Si le modificateur <CODE>+on</CODE> est appliqué, la fonctionnalité
+est activée.</LI>
+<LI>Si le modificateur <CODE>+off</CODE> est appliqué, la
+fonctionnalité est désactivée.</LI>
+</UL>
+</P>
+<P>Pour les commandes listées dans la section 
+<A HREF="BRLTTY-4.html#commands-characters">Commandes de caractère</A>:
+La commande agit sur le caractère où est le curseur.</P>
+<P>Pour les commandes listées dans la section 
+<A HREF="BRLTTY-4.html#commands-base">Commandes de base</A>:
+Le modificateur <CODE>+</CODE><EM>n</EM>, où <EM>n</EM> est un entier non négatif, peut être
+appliqué.
+Si ce modificateur n'est pas spécifié, <CODE>0</CODE> est supposé.</P>
+</DL>
+</P>
+<P>Exemples:
+<UL>
+<LI><CODE>bind CapsLock+Enter CsrTrk</CODE></LI>
+<LI><CODE>bind CapsLock+O CsrTrk+off</CODE></LI>
+<LI><CODE>bind CapsLock+P CsrTrk+on</CODE></LI>
+<LI><CODE>bind KPInsert+1 GoToMark+1</CODE></LI>
+</UL>
+</P>
+
+<DT><B><CODE>include</CODE> <EM>file</EM> # <EM>comment</EM></B><DD><P>Utilisez la ligne <CODE>include</CODE> pour inclure le contenu d'une sous-table de
+touche. Elle est récursive, ce qui signifie que toute sous-table de texte peut
+inclure elle-même une autre sous-table de touche. Prenez soin de vous
+assurer de ne pas créer une "inclusion en boucle".</P>
+<P>
+<DL>
+<DT><B><EM>fichier</EM></B><DD><P>Le fichier à inclure. Cela peut être un chemin relatif ou absolu. Si c'est
+relatif, il est ancré au répertoire contenant le fichier qui inclut.</P>
+</DL>
+</P>
+</DL>
+</P>
+
+<H3><A NAME="keyboard-properties"></A> Propriétés du clavier</H3>
+
+<P>Par défaut, tous les claviers sont pris en charge. 
+Un sous-paramètre des claviers peut être sélectionné en spécifiant une ou plusieurs des
+propriétés suivantes (voir l'option 
+<A HREF="BRLTTY-4.html#options-keyboard-properties">-K</A>
+en ligne de commande et la ligne 
+<A HREF="BRLTTY-4.html#configure-keyboard-properties">keyboard-properties</A> du fichier de configuration):
+<DL>
+<DT><B>type</B><DD><P>Le type de bus, spécifié en tant qu'un des mots-clés suivants:
+<CODE>any</CODE>,
+<CODE>ps2</CODE>,
+<CODE>usb</CODE>,
+<CODE>bluetooth</CODE>.</P>
+<DT><B>vendor</B><DD><P>L'identificateur du vendeur, spécifié comme une entier non-signé 16-bit.</P>
+<DT><B>product</B><DD><P>L'identificateur du produit, spécifié comme une entier non-signé 16-bit.</P>
+</DL>
+</P>
+<P>Les identificateurs du vendeur et du produit peuvent être spécifiés en décimal
+(pas de préfixe), octal (préfixé par <CODE>0</CODE>), ou hexacécimal (préfixé par <CODE>0x</CODE>).
+La spécification de <CODE>0</CODE> signifie que cela correspond à toute valeur (comme si
+la propriété n'était pas spécifiée).</P>
+<HR>
+<A HREF="BRLTTY-7.html">Page suivante</A>
+<A HREF="BRLTTY-5.html">Page précédente</A>
+<A HREF="BRLTTY.html#toc6">Table des matières</A>
+</BODY>
+</HTML>

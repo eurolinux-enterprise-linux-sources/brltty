@@ -1,0 +1,62 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2009 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU General Public License, as published by the Free Software
+# Foundation; either version 2 of the License, or (at your option) any
+# later version. Please see the file LICENSE-GPL for details.
+#
+# Web Page: http://mielke.cc/brltty/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+all install uninstall install-programs install-help install-tables install-drivers:
+	cd $(PGM_DIR) && $(MAKE) $@
+
+POT_FILE = $(PACKAGE_NAME).pot
+$(POT_FILE):
+	$(SRC_TOP)mkpot $(SRC_TOP) $(PACKAGE_NAME) $@
+pot: $(POT_FILE)
+
+ARCHIVE_NAME = $(PACKAGE_NAME)-$(PACKAGE_VERSION)
+
+TAR_FILE = $(ARCHIVE_NAME).tar
+$(TAR_FILE):
+	$(SRC_TOP)mktar $(SRC_TOP) $(ARCHIVE_NAME) $@
+tar: $(TAR_FILE)
+
+GZIP_FILE = $(TAR_FILE).gz
+$(GZIP_FILE): $(TAR_FILE)
+	gzip -c -9 $(TAR_FILE) >$@
+gzip: $(GZIP_FILE)
+
+BZIP2_FILE = $(TAR_FILE).bz2
+$(BZIP2_FILE): $(TAR_FILE)
+	bzip2 -c -9 $(TAR_FILE) >$@
+bzip2: $(BZIP2_FILE)
+
+rpm: $(GZIP_FILE)
+	$(SRC_TOP)mkrpm $(GZIP_FILE)
+
+ZIP_FILE = $(ARCHIVE_NAME).zip
+$(ZIP_FILE):
+	$(SRC_TOP)mkzip $(SRC_TOP) $(ARCHIVE_NAME) $@
+zip: $(ZIP_FILE)
+
+ITERATE = -for directory in $(PGM_DIR); do (cd $$directory && $(MAKE) $@); done
+clean::
+	$(ITERATE)
+	-rm -f -- *.pot *.tar *.gz *.bz2 *.rpm
+distclean:: clean
+	-cd $(DOC_DIR) && $(MAKE) $@
+	$(ITERATE)
+	-rm -f brltty.spec brltty.lsm
+	-rm -f config.log config.cache config.status
+	-rm -fr autom4te*.cache
+	-rm -f config.mk config.h

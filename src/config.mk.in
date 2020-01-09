@@ -1,0 +1,219 @@
+###############################################################################
+# BRLTTY - A background process providing access to the console screen (when in
+#          text mode) for a blind person using a refreshable braille display.
+#
+# Copyright (C) 1995-2009 by The BRLTTY Developers.
+#
+# BRLTTY comes with ABSOLUTELY NO WARRANTY.
+#
+# This is free software, placed under the terms of the
+# GNU General Public License, as published by the Free Software
+# Foundation; either version 2 of the License, or (at your option) any
+# later version. Please see the file LICENSE-GPL for details.
+#
+# Web Page: http://mielke.cc/brltty/
+#
+# This software is maintained by Dave Mielke <dave@mielke.cc>.
+###############################################################################
+
+PACKAGE_NAME = @PACKAGE_NAME@
+PACKAGE_VERSION = @PACKAGE_VERSION@
+
+PGM_DIR = Programs
+DOC_DIR = Documents
+TBL_DIR = Tables
+BRL_DIR = Drivers/Braille
+SPK_DIR = Drivers/Speech
+SCR_DIR = Drivers/Screen
+DRV_DIR = lib
+DAT_DIR = data
+BND_DIR = Bindings
+API_LIBS = -L$(BLD_TOP)$(PGM_DIR) -lbrlapi
+
+CROSSCOMP = @compiler_prefix@
+INSTALL_ROOT = @install_root@
+EXECUTE_ROOT = @execute_root@
+
+EXTRACFLAGS = -I$(BLD_DIR) -I$(SRC_DIR) -I$(BLD_TOP:/=)/$(PGM_DIR) -I$(SRC_TOP:/=)/$(PGM_DIR) -I$(BLD_TOP:/=) -I$(SRC_TOP:/=) @SYSCFLAGS@ @DEFS@
+YACC_CFLAGS = @YACC_CFLAGS@
+
+HOSTCC = @CC@
+CC = $(CROSSCOMP)$(HOSTCC)
+COMMONCFLAGS = @CFLAGS@ $(EXTRACFLAGS)
+HOSTCFLAGS = $(COMMONCFLAGS)
+CFLAGS = $(COMMONCFLAGS)
+LIBCFLAGS = $(CFLAGS) @LIBCFLAGS@
+
+HOSTCXX = @CXX@
+CXX = $(CROSSCOMP)$(HOSTCXX)
+COMMONCXXFLAGS = @CXXFLAGS@ $(EXTRACFLAGS)
+HOSTCXXFLAGS = $(COMMONCXXFLAGS)
+CXXFLAGS = $(COMMONCXXFLAGS)
+LIBCXXFLAGS = $(CXXFLAGS) @LIBCXXFLAGS@
+
+COMMONLDFLAGS = @LDFLAGS@
+HOSTLDFLAGS = $(COMMONLDFLAGS)
+LDFLAGS = $(COMMONLDFLAGS)
+LDLIBS = @LIBS@
+CLIBS = @brltty_libs_curses@
+
+LD = $(CROSSCOMP)@LD@
+
+HOSTMKOBJ = @MKOBJ@
+MKOBJ = $(CROSSCOMP)$(HOSTMKOBJ)
+
+HOSTMKMOD = @MKMOD@
+MKMOD = $(CROSSCOMP)$(HOSTMKMOD)
+
+HOSTMKLIB = @MKLIB@
+MKLIB = $(CROSSCOMP)$(HOSTMKLIB)
+
+HOSTCONFLIBDIR = @CONFLIBDIR@
+CONFLIBDIR = $(CROSSCOMP)$(HOSTCONFLIBDIR)
+
+HOSTRANLIB = @RANLIB@
+RANLIB = $(CROSSCOMP)$(HOSTRANLIB)
+
+YACC = @YACC@
+
+AWK = @AWK@
+
+SYMLINK = @LN_S@
+
+DOXYGEN = @DOXYGEN@
+
+X_CFLAGS = @brltty_cflags_x@
+X_LIBS = @brltty_libs_x@
+XKB_LIBS = @brltty_libs_xkb@
+XTK_LIBS = @brltty_libs_xtk@
+
+CURSES_LIB = @brltty_package_curses@
+GUI_TOOLKIT_LIB = @brltty_package_gui_toolkit@
+
+INSTALL = @INSTALL@
+INSTALL_SCRIPT = $(INSTALL)
+INSTALL_PROGRAM = $(INSTALL_SCRIPT) @INSTALL_OPTION_STRIP@
+INSTALL_DATA = $(INSTALL) -m 644
+INSTALL_DIRECTORY = $(INSTALL) -d
+
+ARC_PFX = @archive_prefix@
+ARC_EXT = @archive_extension@
+LIB_PFX = @library_prefix@
+LIB_EXT = @library_extension@
+MOD_NAME = @module_name@
+MOD_EXT = @module_extension@
+LIB_VAR = @libsearch_variable@
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+datarootdir = @datarootdir@
+bindir = @bindir@
+sbindir = @sbindir@
+libexecdir = @libexecdir@
+datadir = @datadir@
+sysconfdir = @sysconfdir@
+sharedstatedir = @sharedstatedir@
+localstatedir = @localstatedir@
+libdir = @libdir@
+includedir = @includedir@
+oldincludedir = @oldincludedir@
+infodir = @infodir@
+mandir = @mandir@
+
+PROGRAM_DIRECTORY = @program_directory@
+LIBRARY_DIRECTORY = @library_directory@
+WRITABLE_DIRECTORY = @writable_directory@
+DATA_DIRECTORY = @data_directory@
+MANPAGE_DIRECTORY = @manpage_directory@
+INCLUDE_DIRECTORY = @include_directory@
+
+MANUAL_DIRECTORIES = @brltty_manual_directories@
+
+BRAILLE_DRIVER_CODES = @brltty_item_codes_braille@
+BRAILLE_DRIVER_NAMES = @brltty_item_names_braille@
+BRAILLE_INTERNAL_DRIVER_CODES = @brltty_internal_codes_braille@
+BRAILLE_INTERNAL_DRIVER_NAMES = @brltty_internal_names_braille@
+BRAILLE_EXTERNAL_DRIVER_CODES = @brltty_external_codes_braille@
+BRAILLE_EXTERNAL_DRIVER_NAMES = @brltty_external_names_braille@
+BRAILLE_DRIVER_OBJECTS = @braille_driver_objects@
+BRAILLE_DRIVER_LIBRARIES = @braille_driver_libraries@
+BRAILLE_DRIVERS = @braille_drivers@
+
+LIBBRAILLE_ROOT = @libbraille_root@
+
+SPEECH_DRIVER_CODES = @brltty_item_codes_speech@
+SPEECH_DRIVER_NAMES = @brltty_item_names_speech@
+SPEECH_INTERNAL_DRIVER_CODES = @brltty_internal_codes_speech@
+SPEECH_INTERNAL_DRIVER_NAMES = @brltty_internal_names_speech@
+SPEECH_EXTERNAL_DRIVER_CODES = @brltty_external_codes_speech@
+SPEECH_EXTERNAL_DRIVER_NAMES = @brltty_external_names_speech@
+SPEECH_DRIVER_OBJECTS = @speech_driver_objects@
+SPEECH_DRIVER_LIBRARIES = @speech_driver_libraries@
+SPEECH_DRIVERS = @speech_drivers@
+
+SCREEN_DRIVER_CODES = @brltty_item_codes_screen@
+SCREEN_DRIVER_NAMES = @brltty_item_names_screen@
+SCREEN_INTERNAL_DRIVER_CODES = @brltty_internal_codes_screen@
+SCREEN_INTERNAL_DRIVER_NAMES = @brltty_internal_names_screen@
+SCREEN_EXTERNAL_DRIVER_CODES = @brltty_external_codes_screen@
+SCREEN_EXTERNAL_DRIVER_NAMES = @brltty_external_names_screen@
+SCREEN_DRIVER_OBJECTS = @screen_driver_objects@
+SCREEN_DRIVER_LIBRARIES = @screen_driver_libraries@
+SCREEN_DRIVERS = @screen_drivers@
+
+FLITE_ROOT = @flite_root@
+FLITE_LANGUAGE = @flite_language@
+FLITE_LEXICON = @flite_lexicon@
+FLITE_VOICE = @flite_voice@
+MIKROPUHE_ROOT = @mikropuhe_root@
+SPEECHD_ROOT = @speechd_root@
+SWIFT_ROOT = @swift_root@
+THETA_ROOT = @theta_root@
+VIAVOICE_ROOT = @viavoice_root@
+
+INSTALL_TEXT_TABLES = @install_text_tables@
+INSTALL_ATTRIBUTES_TABLES = @install_attributes_tables@
+INSTALL_CONTRACTION_TABLES = @install_contraction_tables@
+INSTALL_DRIVERS = @install_drivers@
+
+CSPI_INCLUDES = @cspi_includes@
+CSPI_LIBDIRS = @cspi_libdirs@
+CSPI_LIBRARIES = @cspi_libraries@
+
+ICU_INCLUDES = @icu_includes@
+ICU_LIBRARIES = @icu_libraries@
+
+TEXT_TABLE = @text_table@
+ATTRIBUTES_TABLE = @attributes_table@
+
+SYSTEM_OBJECT = @system_object@
+USB_OBJECTS = @usb_objects@
+BLUETOOTH_OBJECTS = @bluetooth_objects@
+CTB_OBJECTS = @contracted_braille_objects@
+SPEECH_OBJECT = @speech_support_object@
+BEEPER_OBJECTS = @beeper_tune_objects@
+PCM_OBJECTS = @pcm_tune_objects@
+MIDI_OBJECTS = @midi_tune_objects@
+FM_OBJECTS = @fm_tune_objects@
+
+API_VERSION = @api_version@
+API_RELEASE = @api_release@
+API_OBJECTS = @api_objects@
+API_LIBRARIES = @api_libraries@
+ALL_API = @all_api@
+BUILD_API = @build_api@
+INSTALL_API = @install_api@
+API_REF = @api_ref@
+API_DYNAMIC_LIBRARY = @api_dynamic_library@
+INSTALL_API_LIBRARIES = @install_api_libraries@
+UNINSTALL_API_LIBRARIES = @uninstall_api_libraries@
+API_AUTHFILE = @api_authkeyfile@
+API_SOCKET_DIRECTORY = @api_socket_path@
+
+API_BINDINGS = @api_bindings@
+ALL_API_BINDINGS = @all_api_bindings@
+INSTALL_API_BINDINGS = @install_api_bindings@
+
+ALL_XBRLAPI = @all_xbrlapi@
+INSTALL_XBRLAPI = @install_xbrlapi@
+

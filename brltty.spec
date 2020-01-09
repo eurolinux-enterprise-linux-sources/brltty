@@ -15,7 +15,7 @@
 
 Name: brltty
 Version: %{pkg_version}
-Release: 6%{?dist}
+Release: 7%{?dist}
 License: GPLv2+
 Group: System Environment/Daemons
 URL: http://mielke.cc/brltty/
@@ -153,7 +153,9 @@ done
 %if %{with_speech_dispatcher}
   --with-speechd=%{_prefix} \
 %endif
-  --disable-stripping
+  --disable-stripping \
+  --disable-caml-bindings
+
 make %{?_smp_mflags}
 
 find . \( -path ./doc -o -path ./Documents \) -prune -o \
@@ -170,7 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 make install INSTALL_ROOT="${RPM_BUILD_ROOT}"
 mv "$RPM_BUILD_ROOT%{_libdir}/libbrlapi.a" "$RPM_BUILD_ROOT%{_prefix}/%{_lib}/"
 rm "$RPM_BUILD_ROOT%{_libdir}/libbrlapi.so"
-ln -s ../../%{_lib}/libbrlapi.so "$RPM_BUILD_ROOT%{_prefix}/%{_lib}/"
+ln -s ../../%{_lib}/libbrlapi.so.0.5 "$RPM_BUILD_ROOT%{_prefix}/%{_lib}/libbrlapi.so"
 mv "$RPM_BUILD_ROOT%{_sysconfdir}/brltty/brltty-pm.conf" \
   doc/Drivers/Braille/Papenmeier/
 install -d -m 755 "${RPM_BUILD_ROOT}%{_sysconfdir}" "$RPM_BUILD_ROOT%{_mandir}/man5"
@@ -279,6 +281,12 @@ exit 0
 
 
 %changelog
+* Fri Jul 27 2012 Jaroslav Škarvada <jskarvad@redhat.com> - 4.1-7
+- Fixed build in case ocaml is preinstalled in build root
+  Resolves: rhbz#684526
+- Fixed /usr/lib/libbrlapi.so symbolic link
+  Resolves: rhbz#809326
+
 * Thu Feb 18 2010 Jaroslav Škarvada <jskarvad@redhat.com> - 4.1-6
 - fix rpmlint errors and warnings
 

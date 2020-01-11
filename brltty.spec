@@ -19,7 +19,7 @@
 
 Name: brltty
 Version: %{pkg_version}
-Release: 8%{?dist}
+Release: 9%{?dist}
 License: GPLv2+
 Group: System Environment/Daemons
 URL: http://mielke.cc/brltty/
@@ -362,6 +362,10 @@ rm -rf $RPM_BUILD_ROOT/%{_libdir}/libbrlapi.a
 %endif
 
 %changelog
+* Fri Oct 24 2014 Richard W.M. Jones <rjones@redhat.com> - 4.5-9
+- Rebuild for OCaml 4.01.0
+  resolves: rhbz#1155561
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 4.5-8
 - Mass rebuild 2014-01-24
 

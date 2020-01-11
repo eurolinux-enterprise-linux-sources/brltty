@@ -19,7 +19,7 @@
 
 Name: brltty
 Version: %{pkg_version}
-Release: 15%{?dist}
+Release: 16%{?dist}
 License: GPLv2+
 Group: System Environment/Daemons
 URL: http://mielke.cc/brltty/
@@ -389,6 +389,10 @@ chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
 %endif
 
 %changelog
+* Tue Oct 10 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-16
+- Rebuilt with ocaml-4.05.0
+  Resolves: rhbz#1434818
+
 * Thu Apr 20 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-15
 - Fixed build in case ocaml is preinstalled in the build root and
   support shouldn't be built

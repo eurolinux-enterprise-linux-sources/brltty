@@ -19,7 +19,7 @@
 
 Name: brltty
 Version: %{pkg_version}
-Release: 16%{?dist}
+Release: 8%{?dist}
 License: GPLv2+
 Group: System Environment/Daemons
 URL: http://mielke.cc/brltty/
@@ -28,14 +28,9 @@ Source1: brltty.service
 # patch sent upstream
 Patch3: brltty-4.5-man-fix.patch
 Patch4: brltty-loadLibrary.patch
-Patch5: brltty-4.5-xw-fonts-fix.patch
-Patch6: brltty-4.5-relro-full.patch
-# merged upstream
-Patch7: brltty-4.5-ocaml-4.04-fix.patch
 Summary: Braille display driver for Linux/Unix
-BuildRequires: byacc, glibc-kernheaders, bluez-libs-devel
-BuildRequires: at-spi-devel, at-spi2-core-devel, systemd
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+BuildRequires: byacc glibc-kernheaders bluez-libs-devel
+BuildRequires: systemd
 # work around a bug in the install process:
 Requires(post): coreutils
 Requires(post): systemd
@@ -57,7 +52,7 @@ Summary: Speech Dispatcher driver for BRLTTY
 Group: System Environment/Daemons
 License: GPLv2+
 BuildRequires: speech-dispatcher-devel
-Requires: %{name}%{?_isa} = %{pkg_version}-%{release}
+Requires: %{name} = %{pkg_version}-%{release}
 %description speech-dispatcher
 This package provides the Speech Dispatcher driver for BRLTTY.
 %endif
@@ -76,8 +71,7 @@ Summary: XWindow driver for BRLTTY
 Group: System Environment/Daemons
 License: GPLv2+
 BuildRequires: libSM-devel libICE-devel libX11-devel libXaw-devel libXext-devel libXt-devel libXtst-devel
-Requires: %{name}%{?_isa} = %{pkg_version}-%{release}
-Requires: xorg-x11-fonts-misc, ucs-miscfixed-fonts
+Requires: %{name} = %{pkg_version}-%{release}
 %description xw
 This package provides the XWindow driver for BRLTTY.
 
@@ -86,18 +80,10 @@ Summary: AtSpi driver for BRLTTY
 Group: System Environment/Daemons
 # The data files are licensed under LGPLv2+, see the README file.
 License: GPLv2+ and LGPLv2+
-Requires: %{name}%{?_isa} = %{pkg_version}-%{release}
+BuildRequires: at-spi-devel
+Requires: %{name} = %{pkg_version}-%{release}
 %description at-spi
 This package provides the AtSpi driver for BRLTTY.
-
-%package at-spi2
-Summary: AtSpi2 driver for BRLTTY
-Group: System Environment/Daemons
-# The data files are licensed under LGPLv2+, see the README file.
-License: GPLv2+ and LGPLv2+
-Requires: %{name}%{?_isa} = %{pkg_version}-%{release}
-%description at-spi2
-This package provides the AtSpi2 driver for BRLTTY.
 
 %package -n brlapi
 Version: %{api_version}
@@ -116,7 +102,7 @@ a refreshable braille display.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 Summary: Headers, static archive, and documentation for BrlAPI
 
 %description -n brlapi-devel
@@ -135,7 +121,7 @@ which directly accesses a refreshable braille display.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 BuildRequires: tcl-devel
 Summary: Tcl binding for BrlAPI
 %description -n tcl-brlapi
@@ -145,7 +131,7 @@ This package provides the Tcl binding for BrlAPI.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 BuildRequires: Cython
 BuildRequires: python2-devel
 Summary: Python binding for BrlAPI
@@ -157,7 +143,7 @@ This package provides the Python binding for BrlAPI.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 BuildRequires: Cython
 BuildRequires: python3-devel
 Summary: Python 3 binding for BrlAPI
@@ -169,7 +155,7 @@ This package provides the Python 3 binding for BrlAPI.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 BuildRequires: jpackage-utils
 BuildRequires: java-devel
 Summary: Java binding for BrlAPI
@@ -181,7 +167,7 @@ This package provides the Java binding for BrlAPI.
 Version: %{api_version}
 Group: Development/System
 License: LGPLv2+
-Requires: brlapi%{?_isa} = %{api_version}-%{release}
+Requires: brlapi = %{api_version}-%{release}
 BuildRequires: ocaml
 Summary: OCaml binding for BrlAPI
 %description -n ocaml-brlapi
@@ -195,9 +181,6 @@ This package provides the OCaml binding for BrlAPI.
 %setup -q
 %patch3 -p1 -b .man-fix
 %patch4 -p1 -b .loadLibrary
-%patch5 -p1 -b .xw-fonts-fix
-%patch6 -p1 -b .relro-full
-%patch7 -p1 -b .ocaml-4.04-fix
 
 %if 0%{?with_python3}
 # Make a copy of the source tree for building the Python 3 module
@@ -220,9 +203,6 @@ export CXXFLAGS="%{optflags} -fno-strict-aliasing"
 configure_opts=" \
   --disable-stripping \
   --without-curses \
-%if ! 0%{?with_ocaml}
-  --disable-ocaml-bindings \
-%endif
 %if %{with_speech_dispatcher}
   --with-speechd=%{_prefix} \
 %endif
@@ -294,9 +274,6 @@ mv Documents/BrlAPIref/{html,BrlAPIref}
 # Don't want static lib
 rm -rf $RPM_BUILD_ROOT/%{_libdir}/libbrlapi.a
 
-# make brltty-config executable
-chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
-
 %post
 %systemd_post brltty.service
 
@@ -323,7 +300,6 @@ chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
 %exclude %{_libdir}/brltty/libbrlttyssd.so
 %endif
 %exclude %{_libdir}/brltty/libbrlttyxas.so
-%exclude %{_libdir}/brltty/libbrlttyxa2.so
 %doc LICENSE-GPL LICENSE-LGPL
 %doc %{_mandir}/man[15]/brltty.*
 
@@ -344,9 +320,6 @@ chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
 
 %files at-spi
 %{_libdir}/brltty/libbrlttyxas.so
-
-%files at-spi2
-%{_libdir}/brltty/libbrlttyxa2.so
 
 %files -n brlapi
 %{_bindir}/vstp
@@ -389,49 +362,6 @@ chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
 %endif
 
 %changelog
-* Tue Oct 10 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-16
-- Rebuilt with ocaml-4.05.0
-  Resolves: rhbz#1434818
-
-* Thu Apr 20 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-15
-- Fixed build in case ocaml is preinstalled in the build root and
-  support shouldn't be built
-  Resolves: rhbz#1443907
-
-* Tue Mar 21 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-14
-- Rebuilt for new architectures
-  Resolves: rhbz#1379884
-- Added fix to support compilation with ocaml-4.04.0
-  Resolves: rhbz#1393750
-
-* Fri May  6 2016 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-13
-- Made brltty-config executable, currently useless, but FHS compliant
-  Resolves: rhbz#1332981
-- Fixed multilib
-  Related: rhbz#1324850
-
-* Mon Apr 11 2016 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-12
-- Improved fix for Braille characters not displaying in the XW driver window
-  Related: rhbz#1324669
-
-* Thu Apr  7 2016 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-11
-- Fixed Braille characters not displaying in the XW driver window
-  Resolves: rhbz#1324669
-- Added AT-SPI2 driver
-  Resolves: rhbz#1324672
-- Fixed requirements
-  Resolves: rhbz#1324850
-
-* Tue Apr  5 2016 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-10
-- Hardened build
-  Resolves: rhbz#1092547
-- Fixed Braille display emulator to start
-  Resolves: rhbz#1304725
-
-* Fri Oct 24 2014 Richard W.M. Jones <rjones@redhat.com> - 4.5-9
-- Rebuild for OCaml 4.01.0
-  resolves: rhbz#1155561
-
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 4.5-8
 - Mass rebuild 2014-01-24
 

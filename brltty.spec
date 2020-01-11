@@ -19,7 +19,7 @@
 
 Name: brltty
 Version: %{pkg_version}
-Release: 13%{?dist}
+Release: 15%{?dist}
 License: GPLv2+
 Group: System Environment/Daemons
 URL: http://mielke.cc/brltty/
@@ -30,6 +30,8 @@ Patch3: brltty-4.5-man-fix.patch
 Patch4: brltty-loadLibrary.patch
 Patch5: brltty-4.5-xw-fonts-fix.patch
 Patch6: brltty-4.5-relro-full.patch
+# merged upstream
+Patch7: brltty-4.5-ocaml-4.04-fix.patch
 Summary: Braille display driver for Linux/Unix
 BuildRequires: byacc, glibc-kernheaders, bluez-libs-devel
 BuildRequires: at-spi-devel, at-spi2-core-devel, systemd
@@ -195,6 +197,7 @@ This package provides the OCaml binding for BrlAPI.
 %patch4 -p1 -b .loadLibrary
 %patch5 -p1 -b .xw-fonts-fix
 %patch6 -p1 -b .relro-full
+%patch7 -p1 -b .ocaml-4.04-fix
 
 %if 0%{?with_python3}
 # Make a copy of the source tree for building the Python 3 module
@@ -217,6 +220,9 @@ export CXXFLAGS="%{optflags} -fno-strict-aliasing"
 configure_opts=" \
   --disable-stripping \
   --without-curses \
+%if ! 0%{?with_ocaml}
+  --disable-ocaml-bindings \
+%endif
 %if %{with_speech_dispatcher}
   --with-speechd=%{_prefix} \
 %endif
@@ -383,6 +389,17 @@ chmod 755 ${RPM_BUILD_ROOT}%{_bindir}/brltty-config
 %endif
 
 %changelog
+* Thu Apr 20 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-15
+- Fixed build in case ocaml is preinstalled in the build root and
+  support shouldn't be built
+  Resolves: rhbz#1443907
+
+* Tue Mar 21 2017 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-14
+- Rebuilt for new architectures
+  Resolves: rhbz#1379884
+- Added fix to support compilation with ocaml-4.04.0
+  Resolves: rhbz#1393750
+
 * Fri May  6 2016 Jaroslav Škarvada <jskarvad@redhat.com> - 4.5-13
 - Made brltty-config executable, currently useless, but FHS compliant
   Resolves: rhbz#1332981

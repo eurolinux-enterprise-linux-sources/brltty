@@ -1,0 +1,35 @@
+diff --git a/Drivers/Braille/XWindow/braille.c b/Drivers/Braille/XWindow/braille.c
+index 26ca705..ccabdcd 100644
+--- a/Drivers/Braille/XWindow/braille.c
++++ b/Drivers/Braille/XWindow/braille.c
+@@ -211,7 +211,7 @@ typedef enum {
+ static int cols,lines;
+ static int input;
+ static char *model = "simple";
+-static const char *fontname = "-*-clearlyu-*-r-*-*-17-*-*-*-*-*-iso10646-1,-*-fixed-*-r-*-*-17-*-*-*-*-*-iso10646-1,-*-unifont-*-r-*-*-17-*-*-*-*-*-iso10646-1,-*-fixed-*-*-*-*-*-*-*-*-*-*-iso10646-1,-*-fixed-*-*-*-*-*-*-*-*-*-*-iso8859-1";
++static const char *fontname = "-*-clearlyu-*-r-*-*-17-*-*-*-*-*-iso10646-1,-*-fixed-*-r-*-*-*-*-*-*-*-*-iso10646-1,-*-unifont-*-r-*-*-17-*-*-*-*-*-iso10646-1,-*-fixed-*-*-*-*-*-*-*-*-*-*-iso10646-1,-*-fixed-*-*-*-*-*-*-*-*-*-*-iso8859-1";
+ static int xtArgc = 1;
+ static char *xtDefArgv[]= { "brltty", NULL };
+ static char **xtArgv = xtDefArgv;
+@@ -944,7 +944,6 @@ static int generateToplevel(void)
+ #ifdef USE_XAW
+ 	XtNshowGrip,False,
+ 	XtNinternational, True,
+-	XNFontSet, fontset,
+ #else /* USE_XAW */
+ 	XmNpaneMaximum,20,
+ 	XmNpaneMinimum,20,
+@@ -952,10 +951,11 @@ static int generateToplevel(void)
+ #endif /* USE_XAW */
+ #ifdef USE_XAW
+ 	XtNlabel, disp,
++	fontset ? XNFontSet : NULL, fontset, NULL
+ #else /* USE_XAW */
+-	XmNlabelString, display_cs,
++	XmNlabelString, display_cs, NULL
+ #endif /* USE_XAW */
+-	NULL);
++	);
+ 
+ #ifdef USE_XAW
+       if (fontset) {
